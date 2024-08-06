@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const YourAppoinment = () => {
-  const url = "http://localhost:40001";
+  const url = "https://health-care-backend-zr11.onrender.com";
   const [list, setList] = useState([]); //store all the data from databae
 
   const fetchList = async () => {
