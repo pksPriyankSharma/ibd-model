@@ -4,7 +4,7 @@ import fs from "fs";
 // book Appointment(user)
 
 const bookappointment = async (req, res) => {
-  let image_filename = `${req.file.filename}`;
+  let image_filename = `${req.body.filename}`;
 
   const appointment = new appointmentModel({
     name: req.body.name,
