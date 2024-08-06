@@ -1,0 +1,58 @@
+/* AppointmentForm.css */
+
+.appointment-form {
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #6d6d6d;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+.styled-checkbox {
+  width: 15px;
+  height: 15px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.styled-checkbox:checked {
+  background-color: #007bff;
+}
+
+.add-img-upload {
+  margin-top: 10px;
+}
+.appointment-form form {
+  gap: 20px;
+}
+
+.patient-name input,
+.patient-age input,
+.patient-appointment-time input,
+.patient-appointment-date input {
+  width: max(40%, 280px);
+  border: none;
+}
+
+.patient-name input,
+.patient-age input,
+.patient-appointment-date input,
+.patient-appointment-time input {
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  max-width: 120px;
+  border: none;
+  padding: 10px;
+  background-color: #007e85;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 500;
+}
+.submit-btn:hover {
+  background-color: #005f64;
+}

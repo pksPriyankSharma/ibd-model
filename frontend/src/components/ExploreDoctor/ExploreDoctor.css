@@ -1,0 +1,267 @@
+.explore-doctor {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.explore-doctor h1 {
+  color: black;
+  font-weight: 500;
+}
+
+.explore-doctor-text {
+  max-width: 60%;
+  color: #000000;
+}
+
+.explore-doctor-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.explore-menu-list-item img {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.explore-menu-list-item p {
+  margin-top: 8px;
+  color: #000000;
+  font-size: max(1vw, 10px);
+  cursor: pointer;
+}
+
+.explore-doctor hr {
+  margin: 10px 0px;
+  height: 2px;
+  background-color: #005f64;
+  border: none;
+}
+
+.explore-menu-list-item .active {
+  border: 2px solid #005f64;
+  padding: 6px;
+}
+
+.doctor-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Reduced the gap between cards */
+}
+
+.e-card {
+  margin: 50px auto; /* Reduced the margin */
+  background: transparent;
+  box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+  position: relative;
+  width: 200px; /* Reduced the width */
+  height: 340px; /* Reduced the height */
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  bottom: 80%;
+  left: 30%;
+  width: 130px;
+  height: 130px;
+  background-size: cover;
+  background-position: center;
+}
+
+.arrow {
+  background-color: #007e85;
+  border: none;
+  margin: 30px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  background-color: #005f64;
+}
+
+.wave {
+  position: absolute;
+  width: 540px;
+  height: 700px;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  margin-left: -50%;
+  margin-top: -70%;
+  background: linear-gradient(744deg, #007e85, #019658 60%, #af40ff);
+}
+/* #af40ff, #5b42f3 60%, #00ddeb */
+
+.icon {
+  width: 3em;
+  margin-top: -1em;
+  padding-bottom: 1em;
+}
+
+.infotop {
+  text-align: start;
+  font-size: 20px;
+  padding: 5px;
+  margin: 8px;
+  position: absolute;
+  top: 5.6em;
+  left: 0;
+  right: 0;
+  color: rgb(255, 255, 255);
+  /* font-weight: 600; */
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 100;
+  position: relative;
+  top: 1em;
+  text-transform: lowercase;
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+  top: 210px;
+}
+
+.playing .wave {
+  border-radius: 40%;
+  animation: wave 3000ms infinite linear;
+}
+
+.wave {
+  border-radius: 40%;
+  animation: wave 55s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 4000ms;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 50s;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 5000ms;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 45s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Media queries */
+
+/* For small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .explore-doctor-text {
+    max-width: 90%;
+  }
+
+  .explore-doctor-list {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .explore-menu-list-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .explore-menu-list-item p {
+    font-size: max(2vw, 12px);
+  }
+
+  .doctor-cards {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .e-card {
+    width: 100%;
+  }
+}
+
+/* For medium devices (tablets, 600px to 768px) */
+@media (min-width: 600px) and (max-width: 768px) {
+  .explore-doctor-text {
+    max-width: 80%;
+  }
+
+  .explore-doctor-list {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .explore-menu-list-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .explore-menu-list-item p {
+    font-size: max(1.5vw, 12px);
+  }
+
+  .doctor-cards {
+    flex-direction: row;
+    gap: 10px; /* Reduced the gap between cards */
+  }
+
+  .e-card {
+    width: calc(50% - 20px);
+  }
+}
+
+/* For large devices (desktops, 768px and up) */
+@media (min-width: 768px) {
+  .explore-doctor-text {
+    max-width: 70%;
+  }
+
+  .explore-doctor-list {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .explore-menu-list-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .explore-menu-list-item p {
+    font-size: max(1vw, 14px);
+  }
+
+  .doctor-cards {
+    flex-direction: row;
+    gap: 10px; /* Reduced the gap between cards */
+  }
+
+  .e-card {
+    width: calc(33.333% - 20px);
+  }
+}
