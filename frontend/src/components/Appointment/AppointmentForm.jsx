@@ -8,9 +8,11 @@ import { toast } from "react-toastify";
 import { StoreContext } from "../../context/StoreContext";
 import { jwtDecode } from "jwt-decode";
 
+
 const AppointmentForm = () => {
   const { token, url } = useContext(StoreContext);
   const [image, setImage] = useState(null);
+  const [uploadImage, setUploadImage] = useState(false); // New state for checkbox
   const [data, setData] = useState({
     name: "",
     age: "",
@@ -84,8 +86,8 @@ const AppointmentForm = () => {
     formData.append("age", Number(data.age));
     formData.append("time", data.time);
     formData.append("date", data.date);
-    if (image) {
-      formData.append("image", image);
+    if (uploadImage && image) {
+      formData.append("image", image); // Only append the image if checkbox is checked
     }
 
     try {
@@ -120,7 +122,7 @@ const AppointmentForm = () => {
         {selectedDoctor.price} ₹
       </h2>
       <form className="flex-col" onSubmit={onSubmitHandler}>
-        <div className="add-img-upload flex-col">
+{/*         <div className="add-img-upload flex-col">
           <p>Upload Reports</p>
           <label htmlFor="image">
             {image ? (
@@ -146,7 +148,7 @@ const AppointmentForm = () => {
             id="image"
             hidden
           />
-        </div>
+        </div> */}
         <div className="patient-name flex-col">
           <p>Name of patient</p>
           <input
@@ -187,7 +189,47 @@ const AppointmentForm = () => {
             required
           />
         </div>
+<div className="upload-report flex-col">
+          <label>
+            Do you have any reports to upload?
+            <input
+              style={{ margin: "10px" }}
+              type="checkbox"
+              checked={uploadImage}
+              onChange={(e) => setUploadImage(e.target.checked)}
+            />
+          </label>
 
+          {uploadImage && (
+            <div className="add-img-upload flex-col">
+              <p>Upload Reports</p>
+              <label htmlFor="image">
+                {image ? (
+                  <img
+                    style={{
+                      height: "70px",
+                      width: "60px",
+                      border: "2px solid black",
+                      cursor: "pointer",
+                    }}
+                    src={URL.createObjectURL(image)}
+                    alt="Uploaded report"
+                  />
+                ) : (
+                  <MdOutlineDriveFolderUpload
+                    style={{ height: "30px", width: "30px" }}
+                  />
+                )}
+              </label>
+              <input
+                onChange={(e) => setImage(e.target.files[0])}
+                type="file"
+                id="image"
+                hidden
+              />
+            </div>
+          )}
+        </div>
         <button type="submit" className="submit-btn">
           Book Appointment
         </button>
