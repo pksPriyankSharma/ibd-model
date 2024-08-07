@@ -6,7 +6,7 @@ const appointmentSchema = new mongoose.Schema({
   time: { type: String, required: true },
   date: { type: Date, required: true },
   // fees: { type: Number, require: true },
-  image: { type: String, required: true },
+  image: { type: String},
 });
 
 const appointmentModel =
