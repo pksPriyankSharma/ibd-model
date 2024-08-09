@@ -4,6 +4,7 @@ import {
   placeOrder,
   userOrders,
   verifyOrder,
+  cancelOrder
 } from "../controllers/orderController.js";
 
 const orderRouter = express.Router();
@@ -13,5 +14,7 @@ orderRouter.post("/place", authMiddleware, placeOrder);
 
 orderRouter.post("/verify", verifyOrder);
 orderRouter.post("/userorders", authMiddleware, userOrders);
+//remove
+orderRouter.post("/cancel", cancelOrder);
 
 export default orderRouter;
