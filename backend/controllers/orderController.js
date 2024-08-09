@@ -1,5 +1,6 @@
 import orderModel from "../models/orderModel.js";
 import Stripe from "stripe";
+import fs from "fs";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -66,4 +67,33 @@ const userOrders = async (req, res) => {
   }
 };
 
-export { placeOrder, verifyOrder, userOrders };
+// cancel order
+const cancelOrder = async (req, res) => {
+  try {
+    const appointment = await orderModel.findById(req.body.id);
+
+    if (!appointment) {
+      return res.json({ success: false, message: "Order not found" });
+    }
+
+    if (appointment.image) {
+      fs.unlink(`uploads/${appointment.image}`, (err) => {
+        if (err) {
+          console.log("Error deleting image:", err);
+          return res.json({
+            success: false,
+            message: "Failed to delete image",
+          });
+        }
+      });
+    }
+
+    await orderModel.findByIdAndDelete(req.body.id);
+    res.json({ success: true, message: "Order Canceled" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export { placeOrder, verifyOrder, userOrders, cancelOrder };
