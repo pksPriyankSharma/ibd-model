@@ -4,6 +4,7 @@ import { StoreContext } from "../../context/StoreContext";
 import "./MyOrders.css";
 import { assets } from "../../assets/assets";
 import { toast } from "react-toastify";
+import Modal from "../../components/ProcessingModal";
 
 const MyOrders = () => {
   const { url, token } = useContext(StoreContext);
@@ -47,6 +48,8 @@ const MyOrders = () => {
   }, [token]);
 
   return (
+    <>
+    <Modal open={false}/>
     <div className="my-orders">
       <h2>My Orders</h2>
       <div className="container">
@@ -71,6 +74,7 @@ const MyOrders = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
