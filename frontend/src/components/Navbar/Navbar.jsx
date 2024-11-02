@@ -68,7 +68,7 @@ const Navbar = ({ setShowLogin }) => {
             <div className="navbar-profile">
               <CgProfile style={{ height: "30px", width: "30px" }} />
               <ul className="nav-profile-dropdown">
-                <li>
+              <li>
                   <TbReportMedical style={{ height: "20px", width: "20px" }} />
                   <p onClick={() => navigate("/myorders")}>Appointment</p>
                 </li>

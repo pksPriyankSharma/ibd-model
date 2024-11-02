@@ -1,7 +1,9 @@
 import express from "express";
 import {
+  addReportAppointment,
   bookappointment,
   cancelAppointment,
+  fetchAppointment,
   listAppointment,
 } from "../controllers/appointmentController.js";
 import multer from "multer";
@@ -28,7 +30,14 @@ appointmentRouter.post(
 );
 //to shoe appointment
 appointmentRouter.get("/list", listAppointment);
+appointmentRouter.get("/:id", fetchAppointment);
 //remove appointmnt(adimn)
 appointmentRouter.post("/cancel", cancelAppointment);
+// update appointment
+appointmentRouter.patch(
+  "/add-report",
+  upload.single("image"),
+  addReportAppointment
+);
 
 export default appointmentRouter;

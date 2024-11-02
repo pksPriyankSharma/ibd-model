@@ -80,8 +80,11 @@ const AppointmentForm = () => {
       toast.error("Please fill out all the fields.");
       return;
     }
+    const decodedToken = jwtDecode(token);
+      const userId = decodedToken.userId;
 
     const formData = new FormData();
+    formData.append('userId', userId)
     formData.append("name", data.name);
     formData.append("age", Number(data.age));
     formData.append("time", data.time);
@@ -226,6 +229,7 @@ const AppointmentForm = () => {
                 type="file"
                 id="image"
                 hidden
+                accept="image/*"
               />
             </div>
           )}

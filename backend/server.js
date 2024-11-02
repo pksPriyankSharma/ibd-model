@@ -14,6 +14,9 @@ const port = process.env.PORT || 40001;
 app.use(express.json());
 app.use(cors()); // exices backend from frontend
 
+// serving image file
+app.use(express.static("uploads"));
+
 // db connection
 connectdb();
 
