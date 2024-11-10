@@ -5,6 +5,7 @@ import appointmentRouter from "./routes/appointmentRoute.js";
 import userRouter from "./routes/userRoute.js";
 import "dotenv/config";
 import orderRouter from "./routes/orderRoute.js";
+import modelRouter from "./routes/modelRouter.js";
 
 // app config
 const app = express();
@@ -14,9 +15,6 @@ const port = process.env.PORT || 40001;
 app.use(express.json());
 app.use(cors()); // exices backend from frontend
 
-// serving image file
-app.use(express.static("uploads"));
-
 // db connection
 connectdb();
 
@@ -25,6 +23,7 @@ app.use("/api/appointment", appointmentRouter);
 app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/model", modelRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working");

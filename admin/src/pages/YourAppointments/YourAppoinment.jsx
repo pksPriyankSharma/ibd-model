@@ -110,7 +110,7 @@ const YourAppoinment = () => {
                 className="list-table-format"
                 onClick={() => openProcessing(item)}
               >
-                <img src={`${url}/` + item.images[0]} alt="Reports" />
+                <img src={`${url}/images/` + item.images[0]} alt="Reports" />
                 <p>{item.name}</p>
                 <p>{item.time}</p>
                 <p>{formatDate(item.date)}</p>
